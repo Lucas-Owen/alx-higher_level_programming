@@ -1,25 +1,32 @@
 #include "lists.h"
 
+#define TABLE_SIZE 16
+/**
+ * hash - hash function for the hash table
+ * @node: Pointer value to be hashed
+ * Return: index to insert to table
+ */
+int hash(listint_t *node)
+{
+	return ((((unsigned long) node) & 0xFF) >> 4);
+}
 /**
  * node_is_visited - Checks if a node has been visited in a linked list
  * to avoid loops
- * @head: The linked list containing all the nodes
- * @node: A new node to check if it has been visited
- * @prev: The node just before node, this is where to stop the search
- * Return: 1 if the node is in the list, 0 otherwise
+ * @lookup_table: The lookup table to add the nodes
+ * @node: A new node to check if it has been visited, added to table if absent
+ * Return: 1 if the node is in the table, 0 otherwise
  */
-int node_is_visited(listint_t *head, listint_t *node, listint_t *prev)
+int node_is_visited(listint_t **lookup_table, listint_t *node)
 {
-	if (prev == NULL || node == NULL)
+	int index;
+
+	if (node == NULL)
 		return (0);
-	while (head != prev)
-	{
-		if (head == node)
-			return (1);
-		head = head->next;
-	}
-	if (head == node)
+	index = hash(node);
+	if (lookup_table[index])
 		return (1);
+	lookup_table[index] = node;
 	return (0);
 }
 
@@ -30,15 +37,13 @@ int node_is_visited(listint_t *head, listint_t *node, listint_t *prev)
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *temp = list;
-	listint_t *prev = NULL;
+	listint_t *lookup_table[TABLE_SIZE] = {NULL};
 
-	while (temp != NULL)
+	while (list != NULL)
 	{
-		if (node_is_visited(list, temp, prev))
+		if (node_is_visited(lookup_table, list))
 			return (1);
-		prev = temp;
-		temp = temp->next;
+		list = list->next;
 	}
 
 	return (0);
