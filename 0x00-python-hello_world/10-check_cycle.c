@@ -1,6 +1,6 @@
 #include "lists.h"
 
-#define TABLE_SIZE 16
+#define TABLE_SIZE (0xFF + 1)
 /**
  * hash - hash function for the hash table
  * @node: Pointer value to be hashed
@@ -8,7 +8,7 @@
  */
 int hash(listint_t *node)
 {
-	return ((((unsigned long) node) & 0xFF) >> 4);
+	return ((((unsigned long) node) >> 4) & (TABLE_SIZE - 1));
 }
 /**
  * node_is_visited - Checks if a node has been visited in a linked list
@@ -24,7 +24,7 @@ int node_is_visited(listint_t **lookup_table, listint_t *node)
 	if (node == NULL)
 		return (0);
 	index = hash(node);
-	if (lookup_table[index])
+	if (lookup_table[index] == node)
 		return (1);
 	lookup_table[index] = node;
 	return (0);
