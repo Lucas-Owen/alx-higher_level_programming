@@ -4,6 +4,10 @@ def divisible_by_2(my_list=[]):
     for numbers divisible or not divisible by 2
     
     args:
-        my_list - List of integers
+        my_list: List of integers
+    
+    Returns:
+        A list containing True and False corresponding to the
+        indices of numbers divisible and not divisible by 2 in my_list
     """
     return [x % 2 == 0 for x in my_list]
