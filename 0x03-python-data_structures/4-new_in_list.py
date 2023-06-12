@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
     """Replaces an element in a list at a specified position
-        without modifying the original list
+    without modifying the original list
     args:
         my_list - The list
         idx - index to replace
@@ -10,5 +10,5 @@ def new_in_list(my_list, idx, element):
     if idx < 0 or idx >= len(my_list):
         return list(my_list)
     l2 = list(my_list)
-    l2.replace(idx, element)
+    l2[idx] = element
     return l2
