@@ -3,10 +3,10 @@ def delete_at(my_list=[], idx=0):
     """Delete an element in a list
     
     Args:
-        my_list: The list
-        idx: Index to delete at
+        my_list (list): The list
+        idx (int): Index to delete at
     
-    Returns:
+    Returns: list
         A modified list
     """
     if idx < 0 or idx >= len(my_list):
