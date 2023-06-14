@@ -1,5 +1,4 @@
 #include <Python.h>
-#include "structmember.h"
 #include <stdio.h>
 
 /**
@@ -39,7 +38,8 @@ void print_python_bytes(PyObject *p)
 		puts("  [ERROR] Invalid Bytes Object");
 		return;
 	}
-	PyBytes_AsStringAndSize(p, &s, &len);
+	s = ((PyBytesObject *) p)->ob_sval;
+	len = ((PyVarObject *) p)->ob_size;
 	printf("  size: %ld\n", len);
 	len = len <= 10 ? len : 10;
 	printf("  trying string: %s\n", s);
