@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-from itertools import reduce
 def weight_average(my_list=[]):
-    total, weight = reduce(lambda x, y: (x[0] * y[0], x[1] + y[1]))
+    total = 0
+    weight = 0
+    for pair in my_list:
+        total += pair[0] * pair[1]
+        weight += pair[1]
     return total / weight
