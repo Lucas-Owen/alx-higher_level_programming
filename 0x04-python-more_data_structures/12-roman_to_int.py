@@ -2,7 +2,7 @@
 def roman_to_int(roman_string):
     values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     result = 0
-    if roman_string is None or not roman_string:
+    if roman_string is None or not roman_string or type(roman_string) != str:
         return 0
     roman_string = roman_string.upper()
     invalid = [c for c in roman_string if c not in 'IVXLCD']
