@@ -10,7 +10,7 @@ void print_python_list(PyObject *p)
 {
     Py_ssize_t i;
 
-    if (p == NULL || !PyList_Check(p))
+    if (p == NULL || strcmp(p->ob_type->tp_name, "list") != 0)
         return;
     printf("[*] Size of the Python List = %lu\n",
 		((PyVarObject *) p)->ob_size);
@@ -33,7 +33,7 @@ void print_python_bytes(PyObject *p)
 	char *s;
 
 	puts("[.] bytes object info");
-	if (p == NULL || !PyBytes_CheckExact(p))
+	if (p == NULL || strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		puts("  [ERROR] Invalid Bytes Object");
 		return;
