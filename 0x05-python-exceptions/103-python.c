@@ -34,7 +34,15 @@ void print_python_bytes(PyObject *p)
 			putchar('\n');
 	}
 }
+static void reprint(PyObject *obj) {
+    PyObject* repr = PyObject_Repr(obj);
+    PyObject* str = PyUnicode_AsEncodedString(repr, "utf-8", "~E~");;
 
+    printf("  value: %s\n", ((PyBytesObject *) str)->ob_sval);
+
+    Py_XDECREF(repr);
+    Py_XDECREF(str);
+}
 /**
  * print_python_float - Prints basic info about Python floats
  * @p: Pointer to a PyObject
@@ -42,9 +50,6 @@ void print_python_bytes(PyObject *p)
 */
 void print_python_float(PyObject *p)
 {
-	char buf[99];
-	unsigned int len, i;
-
 	setbuf(stdout, NULL);
 	puts("[.] float object info");
 	if (p == NULL || strcmp(p->ob_type->tp_name, "float") != 0)
@@ -52,13 +57,7 @@ void print_python_float(PyObject *p)
 		puts("  [ERROR] Invalid Float Object");
 		return;
 	}
-	sprintf(buf, "%.15lf", ((PyFloatObject *) p)->ob_fval);
-	len = strlen(buf);
-	for (i = len - 1; buf[i - 1] != '.' && buf[i] == '0'; i--)
-	{
-		buf[i] = '\0';
-	}
-	printf("  value: %s\n", buf);
+	reprint(p);
 }
 
 
