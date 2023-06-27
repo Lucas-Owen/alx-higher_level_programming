@@ -12,6 +12,24 @@ class MagicClass:
 
         Args:
             radius (int, float): A number
+        """
+        self.radius = radius
+
+    @property
+    def radius(self):
+        """Getter for radius
+
+        Returns:
+            int or float: The radius of the circle
+        """
+        return self.__radius
+
+    @radius.setter
+    def radius(self, radius):
+        """Setter for radius
+
+        Args:
+            radius (int, float): A number
 
         Raises:
             TypeError: When radius is not a number
