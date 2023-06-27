@@ -7,7 +7,7 @@ import math
 
 class MagicClass:
     """Code seems to describe a magic class of some sort"""
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """Looks like a circle to this point
 
         Args:
