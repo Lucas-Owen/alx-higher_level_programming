@@ -11,8 +11,6 @@ class Square:
             size (int): Size of the square
             position (tuple(int, int)): Coordinate of the square
         """
-        if position is None:
-            position = (0, 0)
         self.size = size
         self.position = position
 
@@ -22,7 +20,8 @@ class Square:
         Returns:
             The area of the square
         """
-        return self.size * self.size
+        size = getattr(self, "size", 0)
+        return size * size
 
     @property
     def size(self):
@@ -77,15 +76,12 @@ class Square:
                             " of two positive integers")
         self.__position = value
 
-
     def my_print(self):
         """Prints this square instance"""
-        res = ''
         if self.size == 0:
             print()
             return
-        res += '\n' * self.position[1]
-        res += (' '*self.position[0] + '#'*self.size + '\n')*(self.size - 1)
-        res += (' ' * self.position[0] + '#' * self.size)
-        print(res)
-
+        for _ in range(self.position[1]):
+            print()
+        for _ in range(self.size):
+            print(' ' * self.position[0] + '#' * self.size)
