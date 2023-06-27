@@ -81,7 +81,9 @@ class Square:
     def __repr__(self):
         """Returns a string representation of a Square"""
         res = ''
+        if self.size == 0:
+            return res
         res += '\n' * self.position[1]
-        res += (' '*self.position[0] + '#'*self.size + '\n')*(self.size - 2)
+        res += (' '*self.position[0] + '#'*self.size + '\n')*(self.size - 1)
         res += (' ' * self.position[0] + '#' * self.size)
         return res
