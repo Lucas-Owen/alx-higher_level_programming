@@ -20,7 +20,7 @@ class Square:
         Returns:
             The area of the square
         """
-        return self.__size * self.__size
+        return self.size * self.size
 
     @property
     def size(self):
@@ -69,17 +69,18 @@ class Square:
         """
         if (type(position) is not tuple or
                 len(position) != 2 or
-                type(position[0]) is not int or type(position[1]) is not int):
+                type(position[0]) is not int or type(position[1]) is not int or
+                position[0] < 0 or position[1] < 0):
             raise TypeError("position must be a tuple"
                             " of two positive integers")
         self.__position = position
 
     def my_print(self):
         """Prints this square instance"""
-        if self.__size == 0:
+        if self.size == 0:
             print()
             return
-        for _ in range(self.__position[1]):
+        for _ in range(self.position[1]):
             print('')
-        for _ in range(self.__size):
-            print(' ' * self.__position[0] + '#' * self.__size)
+        for _ in range(self.size):
+            print(' ' * self.position[0] + '#' * self.size)
