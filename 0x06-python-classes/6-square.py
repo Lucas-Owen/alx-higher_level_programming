@@ -77,12 +77,20 @@ class Square:
                             " of two positive integers")
         self.__position = value
 
+
     def my_print(self):
         """Prints this square instance"""
+        print(self)
+
+    def __repr__(self):
+        """Returns a string representation of a Square"""
+        res = ''
         if self.size == 0:
-            print()
-            return
-        for _ in range(self.position[1]):
-            print('')
-        for _ in range(self.size):
-            print(' ' * self.position[0] + '#' * self.size)
+            return res
+        res += '\n' * self.position[1]
+        res += (' '*self.position[0] + '#'*self.size + '\n')*(self.size - 1)
+        res += (' ' * self.position[0] + '#' * self.size)
+        return res
+
+    def __str__(self):
+        return self.__repr__()
