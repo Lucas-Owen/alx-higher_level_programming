@@ -72,10 +72,11 @@ class Square:
 
     def my_print(self):
         """Prints this square instance"""
-        if self.__size == 0:
-            print()
-            return
-        for _ in range(self.__position[1]):
-            print('')
-        for _ in range(self.__size):
-            print(' ' * self.__position[0] + '#' * self.__size)
+        print(self)
+
+    def __repr__(self):
+        """Returns a string representation of a Square"""
+        res = ''
+        res += '\n' * self.position[1]
+        res += (' ' * self.position[0] + '#' * self.__size) * (self.size - 1)
+        return res
