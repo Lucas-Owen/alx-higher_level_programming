@@ -50,7 +50,7 @@ class Node:
         Raises:
             TypeError: When next_node is not None and is not a Node object
         """
-        if next_node is not None and type(next_node) != Node:
+        if next_node is not None and type(next_node) is not Node:
             raise TypeError("next_node must be a Node object")
         self.__next_node = next_node
 
@@ -88,6 +88,8 @@ class SinglyLinkedList:
         """Returns a string representation of the LinkedList"""
         res = ''
         temp = self.__head
+        if temp is None:
+            return res
         while temp.next_node is not None:
             res += f'{temp.data}\n'
             temp = temp.next_node
