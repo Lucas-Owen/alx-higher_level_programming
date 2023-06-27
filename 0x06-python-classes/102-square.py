@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module defines a Square Class"""
+
+
 class Square:
     """Square Class"""
     def __init__(self, size=0):
@@ -8,11 +10,11 @@ class Square:
         Args:
             size (int): Size of the square
         """
-        self.size(size)
+        self.size = size
 
     def area(self):
         """Calculates and returns the area of this square
-        
+
         Returns:
             The area of the square
         """
@@ -21,7 +23,7 @@ class Square:
     @property
     def size(self):
         """Getter for size
-        
+
         Returns:
             self.__size
         """
@@ -30,7 +32,7 @@ class Square:
     @size.setter
     def size(self, value):
         """Setter for self.__size
-        
+
         Args:
             value (int): Size of the square
 
@@ -53,7 +55,7 @@ class Square:
         Returns: Bool
         """
         return self.size == other.size
-    
+
     def __ne__(self, other):
         """Compare if two squares are not equal
 
@@ -63,7 +65,7 @@ class Square:
         Returns: Bool
         """
         return self.size != other.size
-    
+
     def __lt__(self, other):
         """Compare if this square is less than other square
 
@@ -83,7 +85,7 @@ class Square:
         Returns: Bool
         """
         return self.size > other.size
-    
+
     def __le__(self, other):
         """Compare if this square is less than or equal to
         other square

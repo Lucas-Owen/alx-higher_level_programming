@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module defines a Square Class"""
+
+
 class Square:
     """Square Class"""
     def __init__(self, size=0, position=(0, 0)):
@@ -9,11 +11,12 @@ class Square:
             size (int): Size of the square
             position (tuple(int, int)): Coordinate of the square
         """
-        self.size(size)
+        self.size = size
+        self.position = position
 
     def area(self):
         """Calculates and returns the area of this square
-        
+
         Returns:
             The area of the square
         """
@@ -22,7 +25,7 @@ class Square:
     @property
     def size(self):
         """Getter for size
-        
+
         Returns:
             self.__size
         """
@@ -31,7 +34,7 @@ class Square:
     @size.setter
     def size(self, value):
         """Setter for self.__size
-        
+
         Args:
             value (int): Size of the square
 
@@ -39,7 +42,7 @@ class Square:
             TypeError: When passed size is not an int type
             ValueError: When size < 0
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
@@ -48,7 +51,7 @@ class Square:
     @property
     def position(self):
         """Getter for position
-        
+
         Returns:
             self.__position
         """
@@ -57,15 +60,16 @@ class Square:
     @position.setter
     def position(self, position):
         """Setter for self.__position
-        
+
         Args:
             position (tuple(int, int)): Position of the square
 
         Raises:
             TypeError: When position is not a tuple of two positive int
         """
-        if (type(position) != tuple or len(position) != 2 or
-            type(position[0]) != int or type(position[1] != int)):
+        if (type(position) is not tuple or
+                len(position) != 2 or
+                type(position[0]) is not int or type(position[1]) is not int):
             raise TypeError("position must be a tuple"
                             " of two positive integers")
         self.__position = position
@@ -78,5 +82,6 @@ class Square:
         """Returns a string representation of a Square"""
         res = ''
         res += '\n' * self.position[1]
-        res += (' ' * self.position[0] + '#' * self.__size) * (self.size - 1)
+        res += (' '*self.position[0] + '#'*self.size + '\n')*(self.size - 2)
+        res += (' ' * self.position[0] + '#' * self.size)
         return res
