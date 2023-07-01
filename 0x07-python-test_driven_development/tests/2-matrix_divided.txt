@@ -1,0 +1,52 @@
+The ``2-matrix_divided`` module
+==============================
+
+Using ``matrix_divided``
+First import ``matrix_divided`` from the ``2-matrix_divided`` module
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+The function takes in two arguments, the first is the matrix, the second is the divider
+It divides all elements of the matrix with the divider
+It returns a new matrix each element rounded to two decimal places
+It should work fine on a matrix of ints or floats
+
+    >>> matrix_divided([[1, 2, 3], [4.0, 5, 6], [7, 8, 9.0]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+Passing any other value types would cause the function to fail
+When matrix is not a valid matrix of numbers, a TypeError is thrown with an error message
+
+    >>> matrix_divided(None, 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[1, 2, 'three']], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[1, 2, 3], [4, 5], [6, 7, 8]], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+The divider should also be a number, passing any other value would cause the function to throw a TypeError
+
+    >>> matrix_divided([[2, 4], [6, 8]], None)
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+When div is 0, a ZeroDivisionError is thrown
+
+    >>> matrix_divided([[2, 4], [6, 8]], 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero

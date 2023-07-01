@@ -1,0 +1,30 @@
+The ``5-text_indentation`` module
+==============================
+
+Using ``text_indentation``
+First import ``text_indentation`` from the ``5-text_indentation`` module
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+The function takes one argument, text
+The text prints two new lines after each occurrence of '.', '?' or ':'
+
+    >>> text_indentation("Bruh: What did he say? I didn't hear him well.")
+    Bruh:
+    <BLANKLINE>
+     What did he say?
+    <BLANKLINE>
+     I didn't hear him well.
+    <BLANKLINE>
+
+When the length is zero, a new line is printed
+
+    >>> text_indentation('No new line')
+    No new line
+
+Passing value types other than string would cause the function to fail
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string

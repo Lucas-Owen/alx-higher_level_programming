@@ -1,0 +1,33 @@
+The ``3-say_my_name`` module
+==============================
+
+Using ``say_my_name``
+First import ``say_my_name`` from the ``3-say_my_name`` module
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+The function takes two arguments, first and last name and prints both to stdout in the following format
+My name is <first name> <last name>
+
+    >>> say_my_name('Lucas', 'Owen')
+    My name is Lucas Owen
+
+The last_name defaults to an empty string when not given
+
+    >>> say_my_name('Lucas')
+    My name is Lucas 
+    >>> say_my_name('')
+    My name is  
+
+Passing value types other than string would cause the function to fail
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name('Lucas', 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+

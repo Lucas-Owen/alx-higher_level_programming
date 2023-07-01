@@ -1,0 +1,21 @@
+"""This module defines a function called text_indentation
+
+See function docs for more details
+"""
+
+
+def text_indentation(text):
+    """This function adds 2 new lines after every '.', '?' and ':'
+
+    Args:
+        text (str): The text to be printed
+    Returns:
+        None
+    Raises
+        ValueError: When text is not a string
+    """
+    if type(text) is not str:
+        raise TypeError('text must be a string')
+    print(text
+          .replace('.', '.\n\n').replace('?', '?\n\n').replace(':', ':\n\n'),
+          end='')

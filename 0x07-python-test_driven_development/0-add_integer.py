@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module defines add_integer
     The function adds two numbers as integers
     If a float is passed, the float is cast to an int
@@ -7,7 +8,14 @@
 
 def add_integer(a, b=98):
     """This function adds two integers
-    Raises: ValueError: When either a or b is not an integer
+
+    Args:
+        a (int): First number
+        b (int): Second number
+    Returns:
+        The sum of a and b
+    Raises:
+        ValueError: When either a or b is not an integer
     """
     if type(a) is float:
         a = int(a)
