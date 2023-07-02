@@ -2,6 +2,7 @@
 """Module for multiplying two matrices
 """
 
+
 def matrix_mul(m_a, m_b):
     """Multiply two matrices and return the result
 
@@ -37,5 +38,5 @@ def matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
     b_trans = [list(row) for row in zip(*m_b)]
-    return [[sum(x*y for x,y in zip(row_a, row_b)) for row_b in b_trans]
+    return [[sum(x*y for x, y in zip(row_a, row_b)) for row_b in b_trans]
             for row_a in m_a]
