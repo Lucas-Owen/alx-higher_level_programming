@@ -19,7 +19,7 @@ class NQueens():
     def N(self, value):
         try:
             value = int(value)
-        except:
+        except Exception:
             raise TypeError('N must be a number')
         if value < 4:
             raise ValueError('N must be at least 4')
@@ -28,24 +28,22 @@ class NQueens():
     def solve(self):
         """Finds solutions to the puzzle by backtracking"""
         chessboard = [[False] * self.N for _ in range(self.N)]
-        solutions = []
-        self.backtrack(chessboard, [], solutions)
-        for soln in solutions:
-            print(soln)
+        self.backtrack(chessboard, [])
 
-    def backtrack(self, chessboard, currSoln, solutions):
+    def backtrack(self, chessboard, currSoln):
         """Runs the actual backtracking algorithm"""
         if len(currSoln) == self.N:
-            sorted_soln = sorted(currSoln)
-            if sorted_soln not in solutions:
-                solutions.append(sorted_soln)
+            print(currSoln)
             return True
         for row in range(self.N):
             for col in range(self.N):
+                if currSoln:
+                    if currSoln[-1][0] != row - 1:
+                        continue
                 if self.valid(chessboard, row, col):
                     currSoln.append([row, col])
                     chessboard[row][col] = True
-                    self.backtrack(chessboard, currSoln, solutions)
+                    self.backtrack(chessboard, currSoln)
                     chessboard[row][col] = False
                     currSoln.pop()
         return False
