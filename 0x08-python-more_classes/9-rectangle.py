@@ -19,7 +19,7 @@ class Rectangle():
     def width(self):
         """Returns the width"""
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """Sets the width
@@ -39,7 +39,7 @@ class Rectangle():
     @property
     def height(self):
         return self.__height
-    
+
     @height.setter
     def height(self, value):
         """Sets the height
@@ -62,12 +62,12 @@ class Rectangle():
 
     def perimeter(self):
         """Returns the perimeter of this Rectangle"""
-        return 2 * self.width * self.height
+        return 2 * (self.width + self.height)
 
     def __str__(self):
         """Returns a string representation of this Rectangle"""
-        res = (Rectangle.print_symbol * self.width + '\n') * (self.height - 1)
-        res += Rectangle.print_symbol * self.width
+        res = (str(self.print_symbol) * self.width + '\n') * (self.height - 1)
+        res += str(self.print_symbol) * self.width
         return res
 
     def __repr__(self):
