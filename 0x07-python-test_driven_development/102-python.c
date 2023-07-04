@@ -45,6 +45,13 @@ void print(char *buf)
 {
 	write(STDOUT_FILENO, buf, _strlen(buf));
 }
+static void reprint(PyObject *obj) {
+    PyObject* str = PyUnicode_AsEncodedString(obj, "utf-8", "~E~");;
+
+    print(((PyBytesObject *) str)->ob_sval);
+
+    Py_XDECREF(str);
+}
 void print_python_string(PyObject *op)
 {
 	char str[21];
@@ -68,7 +75,7 @@ void print_python_string(PyObject *op)
 	unsigned_long_to_string(((PyVarObject *) op)->ob_size, str, 0);
 	print(str);
 	print("\n  value: ");
-	PyObject_Print(op, stdout, Py_PRINT_RAW);
+	reprint(op);
 	fflush(stdout);
 	print("\n");
 }
