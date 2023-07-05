@@ -5,7 +5,7 @@ See function docs for more details
 """
 
 
-def text_indentation(text):
+def text_indentation(text=''):
     """This function adds 2 new lines after every '.', '?' and ':'
 
     Args:

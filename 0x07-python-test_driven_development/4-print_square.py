@@ -5,7 +5,7 @@ The function prints a square to stdout with # character
 """
 
 
-def print_square(size):
+def print_square(size=0):
     """This function prints a square with # character
 
     Args:

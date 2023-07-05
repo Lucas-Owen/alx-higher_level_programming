@@ -6,7 +6,7 @@
 """
 
 
-def add_integer(a, b=98):
+def add_integer(a=0, b=98):
     """This function adds two integers
 
     Args:
