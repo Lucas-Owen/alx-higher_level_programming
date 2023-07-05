@@ -21,6 +21,11 @@ The last_name defaults to an empty string when not given
 
 Passing value types other than string would cause the function to fail
 
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
     >>> say_my_name(None)
     Traceback (most recent call last):
         ...

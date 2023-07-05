@@ -5,7 +5,7 @@ See function docs for more details
 """
 
 
-def text_indentation(text=''):
+def text_indentation(text=None):
     """This function adds 2 new lines after every '.', '?' and ':'
 
     Args:
@@ -17,6 +17,7 @@ def text_indentation(text=''):
     """
     if type(text) is not str:
         raise TypeError('text must be a string')
-    print(text
-          .replace('.', '.\n\n').replace('?', '?\n\n').replace(':', ':\n\n'),
-          end='')
+    text = text.replace('.', '.\n\n').replace('?', '?\n\n').replace(':',
+                                                                    ':\n\n')
+    lines = text.split('\n\n')
+    print('\n\n'.join([line.strip() for line in lines]), end='')

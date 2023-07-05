@@ -38,6 +38,16 @@ Passing non-list arguments
         ...
     ValueError: m_b must be a list of lists
 
+    >>> lazy_matrix_mul() # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+    >>> lazy_matrix_mul([[1, 2]]) # doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
     >>> lazy_matrix_mul([[]], [[]]) # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...

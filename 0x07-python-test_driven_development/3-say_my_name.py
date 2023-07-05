@@ -5,7 +5,7 @@ The function prints to stdout
 """
 
 
-def say_my_name(first_name='', last_name=""):
+def say_my_name(first_name=None, last_name=""):
     """This function prints the first and last name to stdout
     in the format 'My name is <first name> <last name>'
 

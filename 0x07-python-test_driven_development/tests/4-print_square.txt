@@ -14,12 +14,16 @@ The function takes one argument, size, which is the length of the square to be p
     ####
     ####
 
-When the length is zero, a new line is printed
+When the length is zero, nothing is printed
 
     >>> print_square(0)
-    <BLANKLINE>
 
 Passing value types other than int would cause the function to fail
+
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
     >>> print_square(None)
     Traceback (most recent call last):

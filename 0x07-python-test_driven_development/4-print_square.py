@@ -5,7 +5,7 @@ The function prints a square to stdout with # character
 """
 
 
-def print_square(size=0):
+def print_square(size=None):
     """This function prints a square with # character
 
     Args:
@@ -20,5 +20,7 @@ def print_square(size=0):
         raise TypeError('size must be an integer')
     if size < 0:
         raise ValueError('size must be >= 0')
+    if size == 0:
+        return
     print(('#' * size + '\n') * (size - 1), end='')
     print('#' * size)

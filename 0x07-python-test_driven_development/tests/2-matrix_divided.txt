@@ -14,13 +14,16 @@ It should work fine on a matrix of ints or floats
     >>> matrix_divided([[1, 2, 3], [4.0, 5, 6], [7, 8, 9.0]], 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
 
+    >>> matrix_divided([[1, 2, 3], [40, 5, 6], [7, 8, 9]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
 Passing any other value types would cause the function to fail
 When matrix is not a valid matrix of numbers, a TypeError is thrown with an error message
 
     >>> matrix_divided([[1, 2]])
     Traceback (most recent call last):
         ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    TypeError: div must be a number
 
     >>> matrix_divided()
     Traceback (most recent call last):

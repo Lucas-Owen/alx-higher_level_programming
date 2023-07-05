@@ -5,7 +5,7 @@ The function divides all elements of a given matrix by a given number
 """
 
 
-def matrix_divided(matrix=[[]], div=1):
+def matrix_divided(matrix=None, div=None):
     """This function divides all elements of a matrix by a given divisor
 
     Args:
