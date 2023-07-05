@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module defines a function say_my_name
 
 The function prints to stdout

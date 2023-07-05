@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module defines a function print_square
 
 The function prints a square to stdout with # character
