@@ -17,6 +17,16 @@ It should work fine on a matrix of ints or floats
 Passing any other value types would cause the function to fail
 When matrix is not a valid matrix of numbers, a TypeError is thrown with an error message
 
+    >>> matrix_divided([[1, 2]])
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
     >>> matrix_divided(None, 4)
     Traceback (most recent call last):
         ...
