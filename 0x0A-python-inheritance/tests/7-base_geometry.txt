@@ -8,14 +8,24 @@
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
     ...
-TypeError: value must be an integer
+TypeError: name must be an integer
 
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
     ...
-ValueError: value must be greater than 0
+ValueError: age must be greater than 0
 
 >>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
     ...
-ValueError: value must be greater than 0
+ValueError: distance must be greater than 0
+
+>>> bg.integer_validator("nothing")
+Traceback (most recent call last):
+    ...
+TypeError: nothing must be an integer
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+    ...
+TypeError:  must be an integer
