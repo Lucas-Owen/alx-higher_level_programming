@@ -9,11 +9,12 @@ class Square(Rectangle):
     """Square class"""
     def __init__(self, size=1):
         """Initializer with width and height"""
-        self.integer_validate('size', size)
+        self.integer_validator('size', size)
         super().__init__(size, size)
 
     def area(self):
         return super().area()
 
-    def __str__(self):
-        return super.__str__()
+    def __repr__(self):
+        size = round(self.area() ** 0.5)
+        return f'[Square] {size}/{size}'
