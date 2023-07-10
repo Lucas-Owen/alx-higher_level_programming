@@ -9,4 +9,5 @@ class Square(Rectangle):
     """Square class"""
     def __init__(self, size=1):
         """Initializer with width and height"""
-        Rectangle.__init__(self, size, size)
+        self.integer_validate('size', size)
+        super().__init__(size, size)
