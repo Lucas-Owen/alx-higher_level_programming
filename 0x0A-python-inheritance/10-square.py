@@ -11,3 +11,6 @@ class Square(Rectangle):
         """Initializer with width and height"""
         self.integer_validate('size', size)
         super().__init__(size, size)
+
+    def area(self):
+        return super().area()
