@@ -43,12 +43,12 @@ if __name__ == '__main__':
     import sys
     parser = InputParser()
     num_lines = 0
-    for line in sys.stdin:
-        try:
+    try:
+        for line in sys.stdin:
             parser.parse_input(line)
             num_lines += 1
             if num_lines == 10:
                 sys.stdout.write(str(parser) + '\n')
                 num_lines = 0
-        except KeyboardInterrupt:
-            sys.stdout.write(str(parser) + '\n')
+    except KeyboardInterrupt:
+        sys.stdout.write(str(parser) + '\n')
