@@ -53,7 +53,7 @@ if __name__ == '__main__':
             if num_lines == 10:
                 print(parser)
                 num_lines = 0
+        print(parser)
     except KeyboardInterrupt:
         print(parser)
         raise
-    print(parser)
