@@ -6,4 +6,4 @@ def read_file(filename=""):
     """Reads a text file encoded in utf-8"""
     with open(filename, 'r') as f:
         for line in f:
-            print(line)
+            print(line.strip('\n'))
