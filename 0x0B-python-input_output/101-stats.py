@@ -57,4 +57,3 @@ if __name__ == '__main__':
         sys.stdout.write(str(parser) + '\n')
         raise
     sys.stdout.write(str(parser) + '\n')
-    
