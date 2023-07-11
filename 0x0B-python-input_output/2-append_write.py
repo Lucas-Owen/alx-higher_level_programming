@@ -4,6 +4,6 @@
 
 def append_write(filename="", text=""):
     written = 0
-    with open(filename, 'a') as f:
-        written = f.write(str(text))
+    with open(filename, 'a', encoding='utf-8') as f:
+        written = f.write(text)
     return written

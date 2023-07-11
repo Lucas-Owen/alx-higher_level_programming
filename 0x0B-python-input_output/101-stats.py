@@ -50,5 +50,6 @@ if __name__ == '__main__':
                 num_lines = 0
         except KeyboardInterrupt:
             sys.stdout.write(str(parser) + '\n')
+            exit(1)
         except EOFError:
             break
