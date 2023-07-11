@@ -24,13 +24,16 @@ class InputParser():
 
     def parse_input(self, line):
         """Parse input from stdin"""
-        line = line.strip()
-        tokens = line.split(' ')
-        size = int(tokens[-1])
-        status_code = tokens[-2]
-        if status_code in self.status_codes:
-            self.total_size += size
-            self.status_codes[status_code] += 1
+        try:
+            line = line.strip()
+            tokens = line.split(' ')
+            size = int(tokens[-1])
+            status_code = tokens[-2]
+            if status_code in self.status_codes:
+                self.total_size += size
+                self.status_codes[status_code] += 1
+        except Exception:
+            pass
 
     def __repr__(self):
         """To print current stats in the desired format"""
@@ -52,3 +55,6 @@ if __name__ == '__main__':
                 num_lines = 0
     except KeyboardInterrupt:
         sys.stdout.write(str(parser) + '\n')
+        raise
+    sys.stdout.write(str(parser) + '\n')
+    
