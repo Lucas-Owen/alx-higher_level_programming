@@ -51,9 +51,9 @@ if __name__ == '__main__':
             parser.parse_input(line)
             num_lines += 1
             if num_lines == 10:
-                sys.stdout.write(str(parser) + '\n')
+                print(parser)
                 num_lines = 0
     except KeyboardInterrupt:
-        sys.stdout.write(str(parser) + '\n')
+        print(parser)
         raise
-    sys.stdout.write(str(parser) + '\n')
+    print(parser)
