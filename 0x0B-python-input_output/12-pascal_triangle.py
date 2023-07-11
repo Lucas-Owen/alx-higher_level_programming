@@ -5,6 +5,7 @@ representing pascal's triangle of n
 
 
 def pascal_triangle(n):
+    """Returns a list of lists representing pascal's triangle of size n"""
     res = []
     for i in range(0, n):
         base = []

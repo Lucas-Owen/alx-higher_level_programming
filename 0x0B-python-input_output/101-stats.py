@@ -9,6 +9,7 @@ Input is expected to be of the form
 class InputParser():
     """Class to parse the input"""
     def __init__(self):
+        """Initializes the instance"""
         self.total_size = 0
         self.status_codes = {
             '200': 0,
@@ -22,6 +23,7 @@ class InputParser():
             }
 
     def parse_input(self, line):
+        """Parse input from stdin"""
         line = line.strip()
         tokens = line.split(' ')
         size = int(tokens[-1])
@@ -31,6 +33,7 @@ class InputParser():
             self.status_codes[status_code] += 1
 
     def __repr__(self):
+        """To print current stats in the desired format"""
         codes = [f'{code}: {num}' for (code, num) in self.status_codes.items()
                  if num != 0]
         return f'File size: {self.total_size}\n' + '\n'.join(codes)
