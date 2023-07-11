@@ -28,14 +28,14 @@ class InputParser():
         tokens = line.split(' ')
         size = int(tokens[-1])
         status_code = tokens[-2]
-        self.total_size += size
         if status_code in self.status_codes:
+            self.total_size += size
             self.status_codes[status_code] += 1
 
     def __repr__(self):
         """To print current stats in the desired format"""
-        codes = [f'{code}: {num}' for (code, num) in self.status_codes.items()
-                 if num != 0]
+        items = sorted(self.status_codes.items())
+        codes = [f'{code}: {num}' for (code, num) in items if num != 0]
         return f'File size: {self.total_size}\n' + '\n'.join(codes)
 
 
