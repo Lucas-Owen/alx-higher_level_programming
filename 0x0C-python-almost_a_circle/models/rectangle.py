@@ -24,13 +24,24 @@ class Rectangle(Base):
         my_attrs = ['id', 'width', 'height', 'x', 'y']
         for i, arg in enumerate(args):
             setattr(self, my_attrs[i], arg)
-        for name, value in kwargs.items():
-            setattr(self, name, value)
+        if not args:
+            for name, value in kwargs.items():
+                setattr(self, name, value)
 
     def display(self):
         """Displays the rectangle with '#' symbol"""
         rect = ['']*self.y + [' '*self.x + '#'*self.width]*self.height
         print('\n'.join(rect))
+
+    def to_dictionary(self):
+        """Returns a dictionary representation of a Rectangle"""
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+            }
 
     def __str__(self):
         """Returns a string representation"""
