@@ -47,7 +47,7 @@ class Base():
             with open(cls.__name__+'.json', 'r') as f:
                 list_dictionaries = cls.from_json_string(f.read())
             return [cls.create(**obj) for obj in list_dictionaries]
-        except (FileExistsError, FileNotFoundError):
+        except FileNotFoundError:
             return []
 
     @classmethod
@@ -61,3 +61,49 @@ class Base():
         with open(cls.__name__ + '.json', 'w') as file:
             list_dictionaries = [obj.to_dictionary() for obj in list_objs]
             file.write(cls.to_json_string(list_dictionaries))
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the object to csv file
+        The filename is <class name>.csv
+        """
+        obj_strs = None
+        if cls.__name__ == 'Rectangle':
+            obj_strs = map(lambda obj: '{:d},{:d},{:d},{:d},{:d}'.format(
+                obj.id, obj.width, obj.height, obj.x, obj.y), list_objs)
+        if cls.__name__ == 'Square':
+            obj_strs = map(lambda obj: '{:d},{:d},{:d},{:d}'.format(
+                obj.id, obj.size, obj.x, obj.y), list_objs)
+        with open(cls.__name__+'.csv', 'w') as file:
+            file.write('\n'.join(obj_strs))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Read the object from csv file
+        The filename is <class name>.csv
+        """
+        try:
+            list_strs = []
+            with open(cls.__name__+'.csv', 'r') as f:
+                for line in f:
+                    entry = line.strip()
+                    list_strs.append(entry.split(','))
+            obj_dicts = None
+            if cls.__name__ == 'Rectangle':
+                obj_dicts = map(lambda rect: {
+                    'id': int(rect[0]),
+                    'width': int(rect[1]),
+                    'height': int(rect[2]),
+                    'x': int(rect[3]),
+                    'y': int(rect[4])
+                    }, list_strs)
+            if cls.__name__ == 'Square':
+                obj_dicts = map(lambda rect: {
+                    'id': int(rect[0]),
+                    'size': int(rect[1]),
+                    'x': int(rect[2]),
+                    'y': int(rect[3])
+                    }, list_strs)
+            return [cls.create(**obj_dict) for obj_dict in obj_dicts]
+        except (FileNotFoundError, TypeError, IndexError):
+            return []
