@@ -3,6 +3,8 @@
 
 
 import json
+import turtle
+from random import randint
 
 
 class Base():
@@ -107,3 +109,35 @@ class Base():
             return [cls.create(**obj_dict) for obj_dict in obj_dicts]
         except (FileNotFoundError, TypeError, IndexError):
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws the objects using turtle"""
+        brush = turtle.Turtle()
+        brush.pensize(2)
+        turtle.colormode(255)
+        if list_rectangles is not None:
+            for rect in list_rectangles:
+                rect._draw(brush)
+        if list_squares is not None:
+            for rect in list_squares:
+                rect._draw(brush)
+        brush = turtle.done()
+
+    def _draw(rect, brush):
+        brush.pencolor(randint(0, 255), randint(0, 255), randint(0, 255))
+        fillcolor = (randint(0, 255), randint(0, 255), randint(0, 255))
+        brush.fillcolor(*fillcolor)
+        brush.penup()
+        brush.goto(rect.x, rect.y)
+        brush.begin_fill()
+        brush.pendown()
+        brush.forward(rect.width)
+        brush.right(90)
+        brush.forward(rect.height)
+        brush.right(90)
+        brush.forward(rect.width)
+        brush.right(90)
+        brush.forward(rect.height)
+        brush.right(90)
+        brush.end_fill()
