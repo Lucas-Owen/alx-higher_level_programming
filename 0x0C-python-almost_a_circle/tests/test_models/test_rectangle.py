@@ -69,7 +69,11 @@ class TestRectangle(TestCase):
             self.assertEqual(expected, output.getvalue())
 
     def test_to_dictionary(self):
-        pass
+        """Tests the to_dictionary method"""
+        r_dict = Rectangle(10, 2, 1, 9, 1).to_dictionary()
+        self.assertTrue(type(r_dict) is dict)
+        self.assertEqual({'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10},
+                         r_dict)
 
     def test_str(self):
         """Tests for the __str__ function"""

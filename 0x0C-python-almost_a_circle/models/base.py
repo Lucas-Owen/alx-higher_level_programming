@@ -8,6 +8,9 @@ from random import randint
 
 
 class Base():
+    """This is the base class with base functionalities
+    All modules inherit from this class
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):

@@ -32,13 +32,17 @@ class TestBase(unittest.TestCase):
         self.assertEqual([], Base.from_json_string(''))
 
     def test_load_from_file(self):
+        """Tests the load_from_file method"""
         pass
 
     def test_save_to_file(self):
+        """Tests the save_to_file method"""
         pass
 
     def test_save_to_file_csv(self):
+        """Tests the save_to_file_csv method"""
         pass
 
     def test_load_from_file_csv(self):
+        """Tests the load_from_file_csv method"""
         pass
