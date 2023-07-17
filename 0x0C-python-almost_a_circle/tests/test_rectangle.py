@@ -14,21 +14,31 @@ class TestRectangle(TestCase):
     def test_init(self):
         """Tests the creation of a rectangle"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(1, r1.id)
+        self.assertEqual(0, r1.id)
+        self.assertEqual(10, r1.width)
+        self.assertEqual(2, r1.height)
         self.assertEqual(0, r1.x)
         self.assertEqual(0, r1.y)
+
         r2 = Rectangle(2, 10)
-        self.assertEqual(2, r2.id)
+        self.assertEqual(1, r2.id)
+        self.assertEqual(2, r2.width)
+        self.assertEqual(10, r2.height)
         self.assertEqual(0, r2.x)
         self.assertEqual(0, r2.y)
+
         r3 = Rectangle(10, 2, 2, 4, 12)
         self.assertEqual(12, r3.id)
-        self.assertEqual(0, r3.x)
-        self.assertEqual(0, r3.y)
+        self.assertEqual(10, r3.width)
+        self.assertEqual(2, r3.height)
+        self.assertEqual(2, r3.x)
+        self.assertEqual(4, r3.y)
+
         self.assertRaises(TypeError, Rectangle, '10', 2)
         self.assertRaises(TypeError, Rectangle, 10, '2')
         self.assertRaises(TypeError, Rectangle, 10, 2, '1', 0)
         self.assertRaises(TypeError, Rectangle, 10, 2, 1, '0')
+
         self.assertRaises(ValueError, Rectangle, 0, '2', 1, 0)
         self.assertRaises(ValueError, Rectangle, 1, 0, 1, 0)
         self.assertRaises(ValueError, Rectangle, 1, 1, -1, 0)
