@@ -8,6 +8,7 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """Representation of a Square"""
     def __init__(self, size, x=0, y=0, id=None):
+        """Initialize the Square"""
         super().__init__(width=size, height=size, x=x, y=y, id=id)
 
     def update(self, *args, **kwargs):
