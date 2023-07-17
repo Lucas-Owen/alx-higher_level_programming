@@ -30,3 +30,15 @@ class TestBase(unittest.TestCase):
         """Tests for from_json_string"""
         self.assertEqual([], Base.from_json_string(None))
         self.assertEqual([], Base.from_json_string(''))
+
+    def test_load_from_file(self):
+        pass
+
+    def test_save_to_file(self):
+        pass
+
+    def test_save_to_file_csv(self):
+        pass
+
+    def test_load_from_file_csv(self):
+        pass

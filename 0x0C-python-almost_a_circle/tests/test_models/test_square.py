@@ -68,6 +68,9 @@ class TestSquare(TestCase):
             Square(2, 2, 2).display()
             self.assertEqual(expected, output.getvalue())
 
+    def test_to_dictionary(self):
+        pass
+
     def test_str(self):
         """Tests for the __str__ function"""
         r1 = Square(4, 2, 1, 12)
