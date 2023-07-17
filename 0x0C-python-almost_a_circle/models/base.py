@@ -80,7 +80,7 @@ class Base():
             obj_strs = map(lambda obj: '{:d},{:d},{:d},{:d}'.format(
                 obj.id, obj.size, obj.x, obj.y), list_objs)
         with open(cls.__name__+'.csv', 'w') as file:
-            file.write('\n'.join(obj_strs))
+            file.write('\n'.join(obj_strs)+'\n')
 
     @classmethod
     def load_from_file_csv(cls):
@@ -128,6 +128,7 @@ class Base():
         brush = turtle.done()
 
     def _draw(rect, brush):
+        """This is a private method that does the actual drawing"""
         brush.pencolor(randint(0, 255), randint(0, 255), randint(0, 255))
         fillcolor = (randint(0, 255), randint(0, 255), randint(0, 255))
         brush.fillcolor(*fillcolor)
