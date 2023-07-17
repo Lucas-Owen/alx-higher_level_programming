@@ -17,7 +17,8 @@ class Square(Rectangle):
             setattr(self, my_attrs[i], arg)
         if not args:
             for name, value in kwargs.items():
-                setattr(self, name, value)
+                if name in my_attrs:
+                    setattr(self, name, value)
 
     def to_dictionary(self):
         """Returns a dictionary representation of a Rectangle"""

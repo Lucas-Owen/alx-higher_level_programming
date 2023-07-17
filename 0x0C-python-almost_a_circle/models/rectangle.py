@@ -20,13 +20,16 @@ class Rectangle(Base):
         return self.width * self.height
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute in this order"""
+        """Assigns an argument to each attribute in this order
+        **kwargs are skipped if args exists and is not empty
+        """
         my_attrs = ['id', 'width', 'height', 'x', 'y']
         for i, arg in enumerate(args):
             setattr(self, my_attrs[i], arg)
         if not args:
             for name, value in kwargs.items():
-                setattr(self, name, value)
+                if name in my_attrs:
+                    setattr(self, name, value)
 
     def display(self):
         """Displays the rectangle with '#' symbol"""
