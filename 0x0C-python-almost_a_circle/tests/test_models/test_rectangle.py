@@ -56,14 +56,14 @@ class TestRectangle(TestCase):
 
     def test_display_without_xy(self):
         """Tests for the display method"""
-        with patch('sys.stdout', new = StringIO()) as output:
+        with patch('sys.stdout', new=StringIO()) as output:
             expected = '####\n####\n####\n####\n####\n####\n'
             Rectangle(4, 6).display()
             self.assertEqual(expected, output.getvalue())
 
     def test_display_with_xy(self):
         """Tests for displaying with coordinates set"""
-        with patch('sys.stdout', new = StringIO()) as output:
+        with patch('sys.stdout', new=StringIO()) as output:
             expected = '\n\n  ##\n  ##\n  ##\n'
             Rectangle(2, 3, 2, 2).display()
             self.assertEqual(expected, output.getvalue())
