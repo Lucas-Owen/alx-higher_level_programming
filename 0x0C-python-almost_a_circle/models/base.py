@@ -24,7 +24,11 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         """Returns a class instance from dictionary"""
-        shape = cls(1, 1)
+        shape = None
+        if cls.__name__ == 'Rectangle':
+            shape = cls(1, 1)
+        if cls.__name__ == 'Square':
+            shape = cls(1)
         shape.update(**dictionary)
         return shape
 
