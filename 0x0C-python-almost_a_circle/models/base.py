@@ -68,7 +68,9 @@ class Base():
             list_objs: List of objects that inherit from Base
         """
         with open(cls.__name__ + '.json', 'w') as file:
-            list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+            list_dictionaries = []
+            if list_objs:
+                list_dictionaries = [obj.to_dictionary() for obj in list_objs]
             file.write(cls.to_json_string(list_dictionaries))
 
     @classmethod
