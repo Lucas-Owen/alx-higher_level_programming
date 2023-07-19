@@ -165,21 +165,22 @@ class TestRectangle(TestCase):
 
     def test_create(self):
         """Tests for the create classmethod in Base"""
-        rect = Rectangle.create(**{ 'id': 89 })
+        rect = Rectangle.create(**{'id': 89})
         self.assertEqual(rect.id, 89)
-        rect = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        rect = Rectangle.create(**{'id': 89, 'width': 1})
         self.assertEqual(89, rect.id)
         self.assertEqual(1, rect.width)
-        rect = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
         self.assertEqual(89, rect.id)
         self.assertEqual(1, rect.width)
         self.assertEqual(2, rect.height)
-        rect = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
         self.assertEqual(89, rect.id)
         self.assertEqual(1, rect.width)
         self.assertEqual(2, rect.height)
         self.assertEqual(3, rect.x)
-        rect = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3,
+                                   'y': 4})
         self.assertEqual(89, rect.id)
         self.assertEqual(1, rect.width)
         self.assertEqual(2, rect.height)
