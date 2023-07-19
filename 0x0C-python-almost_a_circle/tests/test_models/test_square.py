@@ -44,6 +44,7 @@ class TestSquare(TestCase):
         self.assertRaises(TypeError, Square, 2, 1, '0')
 
         self.assertRaises(ValueError, Square, 0, 1, 0)
+        self.assertRaises(ValueError, Square, -1, 1, 0)
         self.assertRaises(ValueError, Square, 1, -1, 0)
         self.assertRaises(ValueError, Square, 1, 1, -1)
 
@@ -170,3 +171,26 @@ class TestSquare(TestCase):
         self.assertEqual(9, sqr.height)
         self.assertEqual(10, sqr.x)
         self.assertEqual(10, sqr.y)
+
+    def test_create(self):
+        """Tests for the create classmethod in Base"""
+        sqr = Square.create(**{ 'id': 89 })
+        self.assertEqual(sqr.id, 89)
+        sqr = Square.create(**{ 'id': 89, 'size': 1 })
+        self.assertEqual(89, sqr.id)
+        self.assertEqual(1, sqr.size)
+        self.assertEqual(1, sqr.width)
+        self.assertEqual(1, sqr.height)
+        sqr = Square.create(**{ 'id': 89, 'size': 1, 'x': 3 })
+        self.assertEqual(89, sqr.id)
+        self.assertEqual(1, sqr.size)
+        self.assertEqual(1, sqr.width)
+        self.assertEqual(1, sqr.height)
+        self.assertEqual(3, sqr.x)
+        sqr = Square.create(**{ 'id': 89, 'size': 1, 'x': 3, 'y': 4 })
+        self.assertEqual(89, sqr.id)
+        self.assertEqual(1, sqr.size)
+        self.assertEqual(1, sqr.width)
+        self.assertEqual(1, sqr.height)
+        self.assertEqual(3, sqr.x)
+        self.assertEqual(4, sqr.y)
