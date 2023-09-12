@@ -17,7 +17,7 @@ if (argv.length === 5) {
       if (errB) {
         throw errB;
       }
-      writeFile(fileC, dataA.toString() + dataB.toString(), (err) => { throw err; });
+      writeFile(fileC, dataA.toString() + dataB.toString(), () => { });
     });
   });
 }
