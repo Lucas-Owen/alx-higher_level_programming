@@ -23,7 +23,8 @@ if __name__ == '__main__':
         db = MySQLdb.connect(**params)
         cursor = db.cursor()
         city_name = argv[4].replace('\'',
-                                    '').replace('\"', '').replace(';', '')
+                                    '\\\'').replace('\"',
+                                                    '\\"').replace(';', '\;')
         query = """
                 SELECT cities.name FROM cities
                 INNER JOIN states

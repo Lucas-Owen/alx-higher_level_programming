@@ -21,11 +21,12 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(**params)
         cursor = db.cursor()
+        state_name = argv[4]
         query = """
                 SELECT * FROM states
                 WHERE name='{:s}'
                 ORDER BY id ASC;
-                """.format(argv[4])
+                """.format(state_name)
         cursor.execute(query)
         for row in cursor.fetchall():
             print(row)
