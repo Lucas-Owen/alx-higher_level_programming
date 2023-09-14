@@ -22,9 +22,8 @@ if __name__ == '__main__':
     try:
         db = MySQLdb.connect(**params)
         cursor = db.cursor()
-        state_name = argv[4].replace('\'',
-                                    '\\\'').replace('\"',
-                                                    '\\"').replace(';', '\;')
+        state_name = argv[4].replace('\'', "\\\'").replace(
+            '\"', '\\"').replace(';', '\\;')
         query = """
                 SELECT * FROM states
                 WHERE name='{:s}'
