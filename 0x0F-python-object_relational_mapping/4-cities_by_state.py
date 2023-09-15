@@ -21,8 +21,10 @@ if __name__ == '__main__':
         db = MySQLdb.connect(**params)
         cursor = db.cursor()
         query = """
-                SELECT * FROM cities
-                ORDER BY id ASC;
+                SELECT cities.id, cities.name, states.name
+                FROM cities
+                INNER JOIN states ON cities.state_id=states.id
+                ORDER BY cities.id ASC;
                 """
         cursor.execute(query)
         for row in cursor.fetchall():

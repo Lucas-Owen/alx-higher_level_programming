@@ -24,7 +24,7 @@ if __name__ == '__main__':
         state_name = argv[4]
         query = """
                 SELECT * FROM states
-                WHERE name='{:s}'
+                WHERE BINARY name='{:s}'
                 ORDER BY id ASC;
                 """.format(state_name)
         cursor.execute(query)

@@ -17,6 +17,5 @@ if __name__ == "__main__":
     state = State(name='Louisiana')
     session.add(state)
     session.commit()
-    for _state in session.query(State):
-        print("{:d}: {:s}".format(_state.id, _state.name))
+    print(state.id)
     session.close()

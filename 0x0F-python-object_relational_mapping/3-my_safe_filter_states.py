@@ -26,7 +26,7 @@ if __name__ == '__main__':
             '\"', '\\"').replace(';', '\\;')
         query = """
                 SELECT * FROM states
-                WHERE name='{:s}'
+                WHERE BINARY name='{:s}'
                 ORDER BY id ASC;
                 """.format(state_name)
         cursor.execute(query)
