@@ -8,7 +8,7 @@ if __name__ == "__main__":
     from sys import argv
     from model_state import Base, State
     from model_city import City
-    from sqlalchemy import (create_engine, delete)
+    from sqlalchemy import (create_engine)
     from sqlalchemy.orm import sessionmaker
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(

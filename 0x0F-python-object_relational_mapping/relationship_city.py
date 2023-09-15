@@ -5,7 +5,8 @@ This module defines a City class that inherits from sqlalchemy Base class
 
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base
+from sqlalchemy.orm import relationship
+from relationship_state import Base
 
 
 class City(Base):
