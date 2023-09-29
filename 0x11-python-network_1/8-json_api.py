@@ -22,5 +22,5 @@ if __name__ == "__main__":
                 print(f'[{usr.get("id", None)}] {usr.get("name", None)}')
             else:
                 print('No result')
-    except requests.exceptions.JSONDecodeError as err:
+    except ValueError as err:
         print('Not a valid JSON')
