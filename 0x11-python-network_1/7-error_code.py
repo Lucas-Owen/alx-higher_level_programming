@@ -6,14 +6,15 @@ Handles urllib.error.HTTPError
 """
 
 
-from sys import argv
-import requests
+if __name__ == "__main__":
+    from sys import argv
+    import requests
 
-url = argv[1]
-try:
-    with requests.get(url) as response:
-        response.raise_for_status()
-        body = response.text
-        print(body)
-except requests.exceptions.HTTPError as err:
-    print(f'Error code: {err.response.status_code}')
+    url = argv[1]
+    try:
+        with requests.get(url) as response:
+            response.raise_for_status()
+            body = response.text
+            print(body)
+    except requests.exceptions.HTTPError as err:
+        print(f'Error code: {err.response.status_code}')

@@ -6,13 +6,14 @@ Handles urllib.error.HTTPError
 """
 
 
-from sys import argv
-from urllib import request, error
+if __name__ == "__main__":
+    from sys import argv
+    from urllib import request, error
 
-url = argv[1]
-try:
-    with request.urlopen(url) as response:
-        body = response.read()
-        print(body.decode())
-except error.HTTPError as err:
-    print(f'Error code: {err.code}')
+    url = argv[1]
+    try:
+        with request.urlopen(url) as response:
+            body = response.read()
+            print(body.decode())
+    except error.HTTPError as err:
+        print(f'Error code: {err.code}')

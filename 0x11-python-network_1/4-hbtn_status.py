@@ -4,10 +4,11 @@ This script fetches https://alx-intranet.hbtn.io/status and displays the body
 """
 
 
-import requests
+if __name__ == "__main__":
+    import requests
 
-with requests.get('https://alx-intranet.hbtn.io/status') as response:
-    body = response.text
-    print('Body response:')
-    print(f'    - type: {type(body)}')
-    print(f'    - content: {body}')
+    with requests.get('https://alx-intranet.hbtn.io/status') as response:
+        body = response.text
+        print('Body response:')
+        print(f'\t- type: {type(body)}')
+        print(f'\t- content: {body}')

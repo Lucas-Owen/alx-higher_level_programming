@@ -6,8 +6,9 @@ header of the response
 """
 
 
-import requests
-from sys import argv
+if __name__ == "__main__":
+    import requests
+    from sys import argv
 
-with requests.get(argv[1]) as response:
-    print(response.headers.get('X-Request-Id', None))
+    with requests.get(argv[1]) as response:
+        print(response.headers.get('X-Request-Id', None))
