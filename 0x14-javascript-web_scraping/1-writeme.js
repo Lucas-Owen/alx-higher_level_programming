@@ -3,7 +3,8 @@ const argv = require('process').argv;
 const fs = require('fs');
 
 if (argv[3]) {
-  fs.writeFile(argv[2], argv[3], (err) => {
+  const content = new Uint8Array(Buffer.from(body));
+  fs.writeFile(argv[2], content, (err) => {
     if (err) {
       console.error(err);
     }
