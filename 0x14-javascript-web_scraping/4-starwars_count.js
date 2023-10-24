@@ -10,7 +10,7 @@ if (url) {
       return;
     }
     if (response.statusCode === 200) {
-      const films = body.results.filter((film => film.characters.some(link => link.endsWith('/18/'))))
+      const films = body.results.filter(film => film.characters.some(link => link.endsWith('/18/')));
       console.log(films.length);
     } else {
       console.log('request not successful');
