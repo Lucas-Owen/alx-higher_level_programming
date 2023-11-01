@@ -1,2 +1,2 @@
-const red_header = $("DIV#red_header");
-red_header.click((event) => red_header.addClass("red"));
+const redHeader = $('DIV#red_header');
+redHeader.click((event) => redHeader.addClass('red'));

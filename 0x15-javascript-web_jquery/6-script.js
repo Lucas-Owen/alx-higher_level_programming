@@ -1,3 +1,3 @@
-const header = $("header")
-const update_header = $("DIV#update_header")
-update_header.click((event) => header.text("New Header!!!"))
+const header = $('header');
+const updateHeader = $('DIV#update_header');
+updateHeader.click((event) => header.text('New Header!!!'));

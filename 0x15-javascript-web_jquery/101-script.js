@@ -1,9 +1,9 @@
 $(function () {
-	const my_list = $("UL.my_list")
-	const add_item = $("DIV#add_item");
-	const remove_item = $("DIV#remove_item");
-	const clear_list = $("DIV#clear_list");
-	add_item.click( event => my_list.append("<li>Item</li>"));
-	remove_item.click( event => $("UL.my_list LI:last-child").remove());
-	clear_list.click( event => $("UL.my_list LI").remove());
+  const myList = $('UL.my_list');
+  const addItem = $('DIV#add_item');
+  const removeItem = $('DIV#remove_item');
+  const clearList = $('DIV#clear_list');
+  addItem.click(event => myList.append('<li>Item</li>'));
+  removeItem.click(event => $('UL.my_list LI:last-child').remove());
+  clearList.click(event => $('UL.my_list LI').remove());
 });
